@@ -1,11 +1,8 @@
-package com.example.Reto;
-
-import org.springframework.stereotype.Service;
+package model;
 
 import java.util.List;
 
-@Service
-public class usuarioService {
+public class usuarioDTO {
 
     private List<usuario> listaUsuarios;
 
@@ -16,10 +13,5 @@ public class usuarioService {
 
     public void setListaUsuarios(List<usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
-    }
-
-    public void addUsuario(usuario user){
-        user.setId(listaUsuarios.size()+1);
-        listaUsuarios.add(user);
     }
 }

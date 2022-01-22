@@ -1,4 +1,4 @@
-package com.example.Reto;
+package model;
 
 public class usuario {
 

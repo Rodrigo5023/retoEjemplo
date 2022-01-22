@@ -1,10 +1,12 @@
-package com.example.Reto;
+package controller;
 
+import model.usuario;
+import model.usuarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import service.usuarioService;
 
 import java.util.List;
 
@@ -25,11 +27,11 @@ public class retoController {
     }
 
     //GET - lista de usuarios recuperada - cambio de formato
-    usuarioService listaUsuarios = new usuarioService();
+    usuarioDTO listaUsuarios = new usuarioDTO();
     @GetMapping(value="usuarios")
     public String getUsuarios(){
         String url = "url_link";
-        listaUsuarios = restTemplate.getForObject(url, usuarioService.class);
+        listaUsuarios = restTemplate.getForObject(url, usuarioDTO.class);
         List<usuario> lista = listaUsuarios.getListaUsuarios();
 
         String respuesta = "data: [";
@@ -42,12 +44,11 @@ public class retoController {
         return respuesta;
     }
 
-    //4 POST - agregar usuarios a /usuariosJson - derivar a /usuarios
-
+    //POST - agregar usuarios a /usuariosJson - derivar a /usuarios
+    usuarioService usuarioService = new usuarioService();
     @RequestMapping(method = RequestMethod.POST, value ="usuarios")
     public void crearUsuario (@RequestBody usuario usuarioNuevo){
-
-        listaUsuarios.addUsuario(usuarioNuevo);
+        usuarioService.addUsuario(usuarioNuevo, (usuarioDTO) listaUsuarios.getListaUsuarios());
     }
 
 }
