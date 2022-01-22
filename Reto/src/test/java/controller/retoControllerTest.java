@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.nio.channels.UnsupportedAddressTypeException;
 
 import static org.junit.jupiter.api.Assertions.*;
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 class retoControllerTest {
 
