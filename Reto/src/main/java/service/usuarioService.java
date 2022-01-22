@@ -9,12 +9,11 @@ import java.util.List;
 @Service
 public class usuarioService {
 
-
     public String addUsuario(usuario user, usuarioDTO usuarioDTO){
         List<usuario> listaUsuarios = usuarioDTO.getListaUsuarios();
         user.setId(listaUsuarios.size()+1);
         listaUsuarios.add(user);
-        return "Nuevo Usuario Creado con ID:" + user.getId();
+        return "Nuevo Usuario Creado Correctamente";
     }
 
 

@@ -9,6 +9,18 @@ public class usuario {
     private String avatar;
 
 
+    public usuario(){
+
+    }
+
+    public usuario(int id, String first_name, String last_name, String email, String avatar){
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.avatar = avatar;
+    }
+
     public int getId() {
         return id;
     }
@@ -48,4 +60,6 @@ public class usuario {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+
 }
